@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">LessonAndroid</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="counter_value">Counter equals :</string>
+    <string name="description">image</string>
+    <string name="next_fragment">Next Fragment</string>
+    <string name="increase_counter">Increase counter</string>
+    <string name="change_color">Change color</string>
 </resources>
