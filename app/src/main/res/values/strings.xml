@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">LessonAndroid</string>
+    <string name="phone_et_message">Enter your phone number</string>
+    <string name="next_fragment">Next Fragment</string>
 </resources>
