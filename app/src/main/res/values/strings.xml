@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">LessonAndroid</string>
+    <string name="population">Population : %1$d</string>
+    <string name="country">Country: %1$s</string>
 </resources>
