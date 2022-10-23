@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">LessonAndroid</string>
+    <string name="my_favorites">My favorites</string>
+    <string name="tracks_amount">5 tracks</string>
+    <string name="tracks_length">- 17 minutes</string>
+    <string name="title_message"><u>You recently listened to</u></string>
+
 </resources>
