@@ -3,17 +3,15 @@ package com.example.lessonandroid.models
 import com.example.lessonandroid.entities.Category
 import com.example.lessonandroid.entities.ListenedAlbum
 
-sealed class ListModel {
-    object FavoriteTracks : ListModel() {
+sealed class ListModel(var id: Int) {
+    object FavoriteTracks : ListModel(0) {
         val pictures = listOf(
-            "https://upload.wikimedia.org/wikipedia/ru/f/fb/Tragic_City.jpg",
-            "https://images.genius.com/b97d65ea4e0076b33617031fe8d282d5.1000x1000x1.jpg",
-            "https://images.genius.com/b97d65ea4e0076b33617031fe8d282d5.1000x1000x1.jpg"
+            "https://avatars.yandex.net/get-music-content/163479/7072a3e2.a.4924438-2/200x200",
+            "https://avatars.yandex.net/get-music-content/139444/54e44017.a.4924440-2/200x200",
+            "https://avatars.yandex.net/get-music-content/103235/20799d24.a.4416463-1/200x200"
         )
     }
 
-    class CategoryModel(val category: Category) : ListModel()
-    object Title : ListModel()
-    class ListenedAlbumModel(val listenedAlbum: ListenedAlbum) : ListModel()
+    class CategoryModel(id: Int,val category: Category) : ListModel(id)
+    class ListenedAlbumModel(id: Int,val listenedAlbum: ListenedAlbum) : ListModel(id)
 }
-

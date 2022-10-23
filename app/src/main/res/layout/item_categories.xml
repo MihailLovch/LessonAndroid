@@ -29,7 +29,7 @@
             tool:layout_constraintStart_toEndOf="@id/favorite_iv"
             tool:layout_constraintTop_toTopOf="@id/favorite_iv"
             tool:layout_constraintBottom_toBottomOf="@id/favorite_iv"
-            android:textSize="24sp"
+            android:textSize="20sp"
             android:layout_marginStart="8dp"
             />
 

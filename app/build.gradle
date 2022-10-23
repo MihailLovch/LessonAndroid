@@ -42,6 +42,8 @@ dependencies {
     implementation "com.github.bumptech.glide:glide:${glide_version}"
     kapt "com.github.bumptech.glide:compiler:${glide_version}"
 
+    implementation "io.coil-kt:coil:2.2.2"
+
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     def core_ktx_version = "1.7.0"
     implementation "androidx.core:core-ktx:$core_ktx_version"

@@ -48,6 +48,7 @@
             android:layout_height="wrap_content"
             android:textColor="@android:color/darker_gray"
             android:textSize="16sp"
+            android:layout_marginStart="4dp"
             tool:layout_constraintStart_toEndOf="@id/tracks_tv"
             tool:layout_constraintTop_toTopOf="@id/tracks_tv"
             android:text="@string/tracks_length"/>

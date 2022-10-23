@@ -20,6 +20,19 @@
             tool:layout_constraintStart_toStartOf="parent"
             tool:layout_constraintTop_toTopOf="parent"
             tool:layout_constraintBottom_toBottomOf="parent"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/common_title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_message"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:layout_marginBottom="16dp"
+            android:visibility="gone"
+            tool:layout_constraintStart_toStartOf="@id/favorite_iv"
+            tool:layout_constraintBottom_toTopOf="@id/favorite_iv"
+            />
         <TextView
             android:id="@+id/title_tv"
             android:layout_width="wrap_content"
@@ -28,9 +41,9 @@
             android:textColor="@color/black"
             tool:layout_constraintStart_toEndOf="@id/favorite_iv"
             tool:layout_constraintTop_toTopOf="@id/favorite_iv"
-            android:textSize="24sp"
+            android:textSize="20sp"
             android:layout_marginTop="16dp"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="24dp"
             />
         <TextView
             android:id="@+id/tracks_tv"
