@@ -42,6 +42,10 @@ dependencies {
     implementation "com.github.bumptech.glide:glide:${glide_version}"
     kapt "com.github.bumptech.glide:compiler:${glide_version}"
 
+    def navVersion = "2.4.0"
+    implementation("androidx.navigation:navigation-fragment-ktx:$navVersion")
+    implementation("androidx.navigation:navigation-ui-ktx:$navVersion")
+
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     def core_ktx_version = "1.7.0"
     implementation "androidx.core:core-ktx:$core_ktx_version"

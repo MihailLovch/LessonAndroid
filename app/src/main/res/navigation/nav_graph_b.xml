@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph_b"
+    app:startDestination="@id/BFragment">
+
+    <fragment
+        android:id="@+id/BFragment"
+        android:name="com.example.lessonandroid.fragments.BFragment"
+        android:label="BFragment">
+        <action
+            android:id="@+id/action_BFragment_to_BSecondFragment"
+            app:destination="@id/BSecondFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/BSecondFragment"
+        android:name="com.example.lessonandroid.fragments.BSecondFragment"
+        android:label="BSecondFragment" />
+    <action
+        android:id="@+id/action_global_BSecondFragment"
+        app:destination="@id/BSecondFragment" />
+</navigation>
