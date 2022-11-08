@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph_c"
+    app:startDestination="@id/CFragment">
+
+    <fragment
+        android:id="@+id/CFirstFragment"
+        android:name="com.example.lessonandroid.fragments.CFirstFragment"
+        android:label="CFirstFragment" >
+        <action
+            android:id="@+id/action_CFirstFragment_to_CSecondFragment"
+            app:destination="@id/CSecondFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/CSecondFragment"
+        android:name="com.example.lessonandroid.fragments.CSecondFragment"
+        android:label="CSecondFragment" />
+    <fragment
+        android:id="@+id/CFragment"
+        android:name="com.example.lessonandroid.fragments.CFragment"
+        android:label="CFragment" >
+        <action
+            android:id="@+id/action_CFragment_to_CFirstFragment"
+            app:destination="@id/CFirstFragment" />
+    </fragment><action android:id="@+id/action_global_CFirstFragment" app:destination="@id/CFirstFragment"/>
+</navigation>
