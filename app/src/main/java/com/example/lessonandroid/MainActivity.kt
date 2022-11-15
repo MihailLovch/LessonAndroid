@@ -13,5 +13,12 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        supportFragmentManager
+            .beginTransaction()
+            .add(
+                fragmentContainerId,
+                NotificationFragment.getInstance(),
+                NotificationFragment.NOTIFICATION_FRAGMENT_TAG,
+            ).commit()
     }
 }
