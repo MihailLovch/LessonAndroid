@@ -41,6 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
         android:hint="@string/delay_hint"
+        android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/long_message_et" />

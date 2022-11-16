@@ -76,14 +76,9 @@ class NotificationFragment : Fragment(R.layout.fragment_notification) {
                     val message = if (triggerTime == 0L) "No started Notification" else "Too late"
                     Toast.makeText(requireContext(), message, Toast.LENGTH_LONG).show()
                 } else {
-                    val pendingIntent = PendingIntent.getBroadcast(
-                        requireContext(),
-                        1001,
-                        Intent(requireContext(), MyAlarmReceiver::class.java),
-                        PendingIntent.FLAG_UPDATE_CURRENT
-                    )
+
                     alarmManager?.cancel(
-                        pendingIntent
+                        generatePendingIntent()
                     )
                 }
             }
@@ -94,20 +89,10 @@ class NotificationFragment : Fragment(R.layout.fragment_notification) {
 
         triggerTime = SystemClock.elapsedRealtime() + delay * 1000
 
-        val pendingIntent = PendingIntent.getBroadcast(
-            requireContext(),
-            1001,
-            Intent(requireContext(), MyAlarmReceiver::class.java).apply {
-                putExtra(MyAlarmReceiver.HEADER, header)
-                putExtra(MyAlarmReceiver.SHORT_MESSAGE, shortMessage)
-                putExtra(MyAlarmReceiver.LONG_MESSAGE, longMessage)
-            },
-            PendingIntent.FLAG_UPDATE_CURRENT
-        )
         alarmManager?.set(
             AlarmManager.ELAPSED_REALTIME,
             triggerTime,
-            pendingIntent
+            generatePendingIntent(header,shortMessage,longMessage)
         )
     }
 
@@ -149,9 +134,22 @@ class NotificationFragment : Fragment(R.layout.fragment_notification) {
             enableButtons()
         }
     }
+    private fun generatePendingIntent(header: String = "", shortMessage: String = "", longMessage: String = "") =
+        PendingIntent.getBroadcast(
+            requireContext(),
+            1001,
+            Intent(requireContext(), MyAlarmReceiver::class.java).apply {
+                putExtra(MyAlarmReceiver.HEADER, header)
+                putExtra(MyAlarmReceiver.SHORT_MESSAGE, shortMessage)
+                putExtra(MyAlarmReceiver.LONG_MESSAGE, longMessage)
+            },
+            PendingIntent.FLAG_UPDATE_CURRENT
+        )
+
 
     override fun onDestroy() {
         requireActivity().unregisterReceiver(planeBroadcastReceiver)
+        alarmManager = null
         super.onDestroy()
     }
 
