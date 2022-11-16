@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">LessonAndroid</string>
+    <string name="long_message">Long message</string>
+    <string name="short_message">Short message</string>
+    <string name="header">Header</string>
+    <string name="delay_hint">Enter Delay in sec</string>
+    <string name="long_message_cb_message">Show long message</string>
+    <string name="cancel_btn_message">Cancel\n notification</string>
+    <string name="start_btn_message">Start\n notification</string>
+    <string name="last_reload_btn_message">Show\n last reload</string>
+
+    <string name="my_chanel_name">Notifications</string>
 </resources>
