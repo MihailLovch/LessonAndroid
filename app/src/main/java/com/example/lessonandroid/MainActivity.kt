@@ -20,5 +20,6 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
                 NotificationFragment.getInstance(),
                 NotificationFragment.NOTIFICATION_FRAGMENT_TAG,
             ).commit()
+
     }
 }
