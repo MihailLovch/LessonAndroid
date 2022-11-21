@@ -2,4 +2,11 @@
     <string name="app_name">LessonAndroid</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="showing_dialog_message">Choose Sorting</string>
+    <string name="id_sort_btn_message">Sort by id</string>
+    <string name="alphabet_sort_btn_message">Sort By Alphabet</string>
+    <string name="open_camera">Open Camera</string>
+    <string name="navigation_btn_message">Navigate to\n camera fragment</string>
+    <string name="turn_on_flashlight">on flashlight</string>
+    <string name="turn_off_flashlight">off flashlight</string>
 </resources>
