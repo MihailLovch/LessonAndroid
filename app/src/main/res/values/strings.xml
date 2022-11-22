@@ -7,6 +7,4 @@
     <string name="alphabet_sort_btn_message">Sort By Alphabet</string>
     <string name="open_camera">Open Camera</string>
     <string name="navigation_btn_message">Navigate to\n camera fragment</string>
-    <string name="turn_on_flashlight">on flashlight</string>
-    <string name="turn_off_flashlight">off flashlight</string>
 </resources>

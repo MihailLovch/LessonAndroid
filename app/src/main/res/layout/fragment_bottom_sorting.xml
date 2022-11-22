@@ -10,7 +10,7 @@
         android:id="@+id/id_sort_btn"
         android:layout_width="100dp"
         android:layout_height="64dp"
-        android:background="@color/light_green"
+        android:background="@color/light_red"
         android:text="@string/id_sort_btn_message"
         android:textAllCaps="false"
         app:layout_constraintEnd_toStartOf="@id/alphabet_sort_btn"

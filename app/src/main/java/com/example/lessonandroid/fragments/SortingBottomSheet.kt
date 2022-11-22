@@ -17,7 +17,6 @@ class SortingBottomSheet : BottomSheetDialogFragment() {
 
     private var _viewBinding: FragmentBottomSortingBinding? = null
     private val viewBinding get() = _viewBinding!!
-    private var isId: Boolean = true
     private var currentSort: Sorting = Sorting.Id
 
     override fun onCreateView(
@@ -32,32 +31,35 @@ class SortingBottomSheet : BottomSheetDialogFragment() {
     }
 
     private fun initButtonsColor() {
-        isId = arguments?.getBoolean(ID_SORT) ?: true
         currentSort = (arguments?.getSerializable(SORT_KEY) ?: Sorting.Id) as Sorting
 
-        when(currentSort){
+        when (currentSort) {
             Sorting.Id, Sorting.IdDesc -> activeIdSort()
-            Sorting.Name,Sorting.NameDesc -> activeAlphabetSort()
+            Sorting.Name, Sorting.NameDesc -> activeAlphabetSort()
         }
-
-        if (isId) {
-            activeIdSort()
-        } else {
-            activeAlphabetSort()
-        }
-
     }
+
     private fun initListeners() {
         with(viewBinding) {
             idSortBtn.setOnClickListener {
-                activeIdSort()
-                parentFragmentManager.setFragmentResult(SORT_KEY, bundleOf(ID_SORT to true))
+                val newSorting = when (currentSort) {
+                    Sorting.Id -> Sorting.IdDesc
+                    Sorting.IdDesc -> Sorting.Id
+                    else -> Sorting.Id
+                    //можно упростить, но так легче понимать логику
+                }
+                parentFragmentManager.setFragmentResult(SORT_KEY, bundleOf(SORT_KEY to newSorting))
                 dismiss()
+
             }
 
             alphabetSortBtn.setOnClickListener {
-                activeAlphabetSort()
-                parentFragmentManager.setFragmentResult(SORT_KEY, bundleOf(ID_SORT to false))
+                val newSorting = when (currentSort) {
+                    Sorting.Name -> Sorting.NameDesc
+                    Sorting.NameDesc -> Sorting.Name
+                    else -> Sorting.Name
+                }
+                parentFragmentManager.setFragmentResult(SORT_KEY, bundleOf(SORT_KEY to newSorting))
                 dismiss()
 
             }
@@ -66,43 +68,68 @@ class SortingBottomSheet : BottomSheetDialogFragment() {
 
     private fun activeIdSort() {
         with(viewBinding) {
-
-            idSortBtn.setBackgroundColor(
-                ContextCompat.getColor(
-                    requireContext(),
-                    R.color.light_green
-                )
-            )
-            alphabetSortBtn.setBackgroundColor(
-                ContextCompat.getColor(
-                    requireContext(),
-                    R.color.light_red
-                )
-            )
+            when (currentSort) {
+                Sorting.Id -> {
+                    idSortBtn.setBackgroundColor(
+                        ContextCompat.getColor(
+                            requireContext(),
+                            R.color.light_green
+                        )
+                    )
+                    alphabetSortBtn.setBackgroundColor(
+                        ContextCompat.getColor(
+                            requireContext(),
+                            R.color.light_red
+                        )
+                    )
+                }
+                Sorting.IdDesc -> {
+                    idSortBtn.setBackgroundColor(
+                        ContextCompat.getColor(
+                            requireContext(),
+                            R.color.dark_green
+                        )
+                    )
+                }
+                else -> throw Exception("Not provided")
+            }
         }
     }
 
     private fun activeAlphabetSort() {
         with(viewBinding) {
-            alphabetSortBtn.setBackgroundColor(
-                ContextCompat.getColor(
-                    requireContext(),
-                    R.color.light_green
-                )
-            )
-            idSortBtn.setBackgroundColor(
-                ContextCompat.getColor(
-                    requireContext(),
-                    R.color.light_red
-                )
-            )
+
+            when (currentSort) {
+                Sorting.Name -> {
+                    alphabetSortBtn.setBackgroundColor(
+                        ContextCompat.getColor(
+                            requireContext(),
+                            R.color.light_green
+                        )
+                    )
+                    idSortBtn.setBackgroundColor(
+                        ContextCompat.getColor(
+                            requireContext(),
+                            R.color.light_red
+                        )
+                    )
+                }
+                Sorting.NameDesc -> {
+                    alphabetSortBtn.setBackgroundColor(
+                        ContextCompat.getColor(
+                            requireContext(),
+                            R.color.dark_green
+                        )
+                    )
+                }
+                else -> throw Exception("Not supported")
+            }
         }
     }
 
     override fun onDestroy() {
         _viewBinding = null
         super.onDestroy()
-        Log.d("Check", "DESTROYED")
     }
 
     companion object {

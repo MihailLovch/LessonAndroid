@@ -21,6 +21,7 @@ class QRScannerFragment : Fragment(R.layout.fragment_camera) {
 
     private val viewBinding: FragmentCameraBinding by viewBinding(FragmentCameraBinding::bind)
     private val permission = android.Manifest.permission.CAMERA
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         viewBinding.button.setOnClickListener {
             (requireActivity() as MainActivity).requestSinglePermission(
@@ -61,8 +62,6 @@ class QRScannerFragment : Fragment(R.layout.fragment_camera) {
             if (result.contents == null) {
                 Toast.makeText(requireContext(), "Cancelled", Toast.LENGTH_LONG).show()
             } else {
-                Toast.makeText(requireContext(), "Scanned: " + result.contents, Toast.LENGTH_LONG)
-                    .show()
                 val intent = Intent(Intent.ACTION_VIEW)
                 intent.data = Uri.parse(result.contents)
                 startActivity(intent)
@@ -72,7 +71,6 @@ class QRScannerFragment : Fragment(R.layout.fragment_camera) {
     private fun onButtonClick() {
         barcodeLauncher.launch(
             ScanOptions().apply {
-//                setOrientationLocked(true)
                 setPrompt("Scan your qr")
                 setBeepEnabled(false)
             }
