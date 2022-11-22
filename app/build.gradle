@@ -37,10 +37,20 @@ android {
 }
 
 dependencies {
+    //qr first impl
+    implementation('com.journeyapps:zxing-android-embedded:4.3.0') { transitive = false }
+    implementation 'com.google.zxing:core:3.3.0'
+
+
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+
     def glide_version = '4.14.2'
     implementation "com.github.bumptech.glide:glide:${glide_version}"
     kapt "com.github.bumptech.glide:compiler:${glide_version}"
+
+    def navVersion = "2.4.0"
+    implementation("androidx.navigation:navigation-fragment-ktx:$navVersion")
+    implementation("androidx.navigation:navigation-ui-ktx:$navVersion")
 
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     def core_ktx_version = "1.7.0"
