@@ -26,9 +26,13 @@ class MainFragment : Fragment(R.layout.fragment_main) {
                 )
             }
             endBtn.setOnClickListener{
-
+                stopService()
             }
         }
+    }
+
+    private fun stopService() {
+        activity?.stopService(Intent(requireContext(),CoordinatesService::class.java))
     }
 
     private fun permissionCallback(isGranted: Boolean) {
@@ -57,12 +61,8 @@ class MainFragment : Fragment(R.layout.fragment_main) {
     }
 
     private fun startService() {
-
-        ContextCompat.startForegroundService(requireContext(),Intent(requireContext(),CoordinatesService::class.java).apply {
-            putExtra("tet","test")
-        })
+        ContextCompat.startForegroundService(requireContext(),Intent(requireContext(),CoordinatesService::class.java))
     }
-
     companion object {
         fun getInstance() = MainFragment()
 

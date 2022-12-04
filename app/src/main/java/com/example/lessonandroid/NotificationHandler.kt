@@ -15,18 +15,26 @@ class NotificationHandler(private val context: Context) {
     fun createNotification(
         headerText: String?,
         messageText: String?,
-        longText: String = "",
     ): Notification {
         createChanel()
         val notificationBuilder = NotificationCompat.Builder(context, MY_CHANEL_ID)
-            .setPriority(NotificationCompat.PRIORITY_MAX)
+            .setPriority(NotificationCompat.PRIORITY_MIN)
             .setSmallIcon(R.drawable.ic_launcher_foreground)
             .setContentTitle(headerText)
             .setContentText(messageText)
             .setAutoCancel(true)
-            .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+            .setOnlyAlertOnce(true)
+            .setCategory(NotificationCompat.CATEGORY_LOCATION_SHARING)
 
         return notificationBuilder.build()
+    }
+
+    fun updateNotification(
+        headerText: String?,
+        messageText: String?
+    ) {
+        val notification = createNotification(headerText,messageText)
+        notificationManager.notify(ID,notification)
     }
 
     private fun createChanel() {
@@ -35,12 +43,13 @@ class NotificationHandler(private val context: Context) {
                 MY_CHANEL_ID,
                 context.getString(R.string.my_chanel_name),
                 NotificationManager.IMPORTANCE_HIGH,
-            ).apply { description = "Fine location" }
+            ).apply { name = "Fine location" }
             notificationManager.createNotificationChannel(notificationChannel)
         }
     }
 
     companion object {
         private const val MY_CHANEL_ID = "MY_CHANEL_ID"
+        const val ID = 12
     }
 }
